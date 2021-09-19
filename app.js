@@ -20,6 +20,8 @@ const aosta = document.getElementById('aosta');
 const veneto = document.getElementById('veneto');
 const mainContainer = document.querySelector('.main-container');
 const listContainer = document.querySelector('.list');
+const svg = document.querySelector('svg');
+const info = document.querySelector('.info');
 const regionsList = document.querySelectorAll('.region');
 const svgPaths = document.querySelectorAll('.regione');
 
@@ -235,7 +237,7 @@ getData()
 function resetPathStyles(paths) {
     paths.forEach((path) => {
         path.style.fill = '#3E5C73';
-        path.style.stroke = '#3E5C73';
+        path.style.stroke = 'grey';
     })
 }
 
@@ -250,6 +252,15 @@ listContainer.addEventListener('click', (e) => {
     if (e.target.classList.contains('region')) {
         //toggle hidden class
         e.target.children[1].classList.toggle('hidden');
+        //change icon
+        let icon = e.target.firstElementChild;
+        if (icon.classList.contains('fa-sort-down')) {
+            icon.classList.remove('fa-sort-down')
+            icon.classList.add('fa-sort-up')
+        } else if (icon.classList.contains('fa-sort-up')) {
+            icon.classList.remove('fa-sort-up')
+            icon.classList.add('fa-sort-down')
+        }
         //if region is clicked, change region path fill
         let name = e.target.className.split(' ');
         svgPaths.forEach((path) => {
@@ -259,8 +270,6 @@ listContainer.addEventListener('click', (e) => {
             path.style.strokeMiterlimit = "10";
             if (path.id === name[1]) {
                 path.style.fill = `url(#${ name[1] }-pattern)`;
-                path.style.stroke = `palegreen`;
-                path.style.strokeWidth = `3px`;
             }
         })
     };
@@ -279,9 +288,16 @@ mainContainer.addEventListener('mouseover', (e) => {
 
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'piemonte') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#piemonte-pattern)';
-            e.target.style.stroke = 'palegreen';
-
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.piemonte[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.piemonte[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.piemonte[1] }</p>
+            <iframe class="song" src="${ regionsInfo.piemonte[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
@@ -289,7 +305,16 @@ mainContainer.addEventListener('mouseover', (e) => {
 mainContainer.addEventListener('mouseover', (e) => {
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'lombardia') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#lombardia-pattern)';
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.lombardia[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.lombardia[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.lombardia[1] }</p>
+            <iframe class="song" src="${ regionsInfo.lombardia[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
@@ -298,7 +323,16 @@ mainContainer.addEventListener('mouseover', (e) => {
     //console.log(e.target);
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'emilia') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#emilia-pattern)';
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.emilia[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.emilia[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.emilia[1] }</p>
+            <iframe class="song" src="${ regionsInfo.emilia[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
@@ -307,7 +341,16 @@ mainContainer.addEventListener('mouseover', (e) => {
     //console.log(e.target);
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'toscana') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#toscana-pattern)';
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.toscana[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.toscana[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.toscana[1] }</p>
+            <iframe class="song" src="${ regionsInfo.toscana[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
@@ -316,7 +359,16 @@ mainContainer.addEventListener('mouseover', (e) => {
     //console.log(e.target);
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'sicilia') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#sicilia-pattern)';
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.sicilia[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.sicilia[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.sicilia[1] }</p>
+            <iframe class="song" src="${ regionsInfo.sicilia[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
@@ -325,7 +377,16 @@ mainContainer.addEventListener('mouseover', (e) => {
     //console.log(e.target);
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'puglia') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#puglia-pattern)';
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.puglia[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.puglia[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.puglia[1] }</p>
+            <iframe class="song" src="${ regionsInfo.puglia[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
@@ -334,7 +395,16 @@ mainContainer.addEventListener('mouseover', (e) => {
     //console.log(e.target);
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'lazio') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#lazio-pattern)';
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.lazio[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.lazio[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.lazio[1] }</p>
+            <iframe class="song" src="${ regionsInfo.lazio[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
@@ -343,7 +413,16 @@ mainContainer.addEventListener('mouseover', (e) => {
     //console.log(e.target);
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'trentino') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#trentino-pattern)';
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.trentino[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.trentino[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.trentino[1] }</p>
+            <iframe class="song" src="${ regionsInfo.trentino[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
@@ -352,7 +431,16 @@ mainContainer.addEventListener('mouseover', (e) => {
     //console.log(e.target);
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'calabria') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#calabria-pattern)';
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.calabria[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.calabria[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.calabria[1] }</p>
+            <iframe class="song" src="${ regionsInfo.calabria[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
@@ -361,7 +449,16 @@ mainContainer.addEventListener('mouseover', (e) => {
     //console.log(e.target);
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'campania') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#campania-pattern)';
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.campania[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.campania[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.campania[1] }</p>
+            <iframe class="song" src="${ regionsInfo.campania[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
@@ -370,7 +467,16 @@ mainContainer.addEventListener('mouseover', (e) => {
     //console.log(e.target);
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'abruzzo') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#abruzzo-pattern)';
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.abruzzo[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.abruzzo[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.abruzzo[1] }</p>
+            <iframe class="song" src="${ regionsInfo.abruzzo[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
@@ -379,7 +485,16 @@ mainContainer.addEventListener('mouseover', (e) => {
     //console.log(e.target);
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'marche') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#marche-pattern)';
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.marche[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.marche[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.marche[1] }</p>
+            <iframe class="song" src="${ regionsInfo.marche[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
@@ -388,7 +503,16 @@ mainContainer.addEventListener('mouseover', (e) => {
     //console.log(e.target);
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'basilicata') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#basilicata-pattern)';
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.basilicata[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.basilicata[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.basilicata[1] }</p>
+            <iframe class="song" src="${ regionsInfo.basilicata[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
@@ -397,7 +521,16 @@ mainContainer.addEventListener('mouseover', (e) => {
     //console.log(e.target);
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'umbria') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#umbria-pattern)';
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.umbria[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.umbria[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.umbria[1] }</p>
+            <iframe class="song" src="${ regionsInfo.umbria[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
@@ -406,7 +539,16 @@ mainContainer.addEventListener('mouseover', (e) => {
     //console.log(e.target);
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'liguria') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#liguria-pattern)';
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.liguria[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.liguria[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.liguria[1] }</p>
+            <iframe class="song" src="${ regionsInfo.liguria[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
@@ -415,7 +557,16 @@ mainContainer.addEventListener('mouseover', (e) => {
     //console.log(e.target);
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'molise') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#molise-pattern)';
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.molise[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.molise[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.molise[1] }</p>
+            <iframe class="song" src="${ regionsInfo.molise[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
@@ -424,7 +575,16 @@ mainContainer.addEventListener('mouseover', (e) => {
     //console.log(e.target);
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'aosta') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#aosta-pattern)';
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.aosta[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.aosta[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.aosta[1] }</p>
+            <iframe class="song" src="${ regionsInfo.aosta[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
@@ -433,7 +593,16 @@ mainContainer.addEventListener('mouseover', (e) => {
     //console.log(e.target);
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'friuli') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#friuli-pattern)';
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.friuli[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.friuli[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.friuli[1] }</p>
+            <iframe class="song" src="${ regionsInfo.friuli[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
@@ -442,7 +611,16 @@ mainContainer.addEventListener('mouseover', (e) => {
     //console.log(e.target);
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'veneto') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#veneto-pattern)';
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.veneto[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.veneto[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.veneto[1] }</p>
+            <iframe class="song" src="${ regionsInfo.veneto[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
@@ -451,253 +629,212 @@ mainContainer.addEventListener('mouseover', (e) => {
     //console.log(e.target);
     if (e.target.classList.contains('regione')) {
         if (e.target.id === 'sardegna') {
+            resetPathStyles(svgPaths)
             e.target.style.fill = 'url(#sardegna-pattern)';
+            info.innerHTML = `
+            <div class="region-header">
+            <h1>${ regionsInfo.sardegna[0] }</h1>
+            <div class="image-container"><img src="${ regionsInfo.sardegna[2] }" alt="sicily-foto"></div>
+         </div>
+         <p>${ regionsInfo.sardegna[1] }</p>
+            <iframe class="song" src="${ regionsInfo.sardegna[3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `
         }
     }
 })
 
 //------------------ REGION MOUSE OUT EVENTS ---------------------------------------------------
 
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'piemonte') {
-            e.target.style.fill = '#3E5C73';
-            e.target.style.stroke = 'grey';
-
-        }
-    }
-})
-
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'lombardia') {
-            e.target.style.fill = '#3E5C73';
-        }
-    }
-})
-
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'emilia') {
-            e.target.style.fill = '#3E5C73';
-        }
-    }
-})
-
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'toscana') {
-            e.target.style.fill = '#3E5C73';
-        }
-    }
-})
-
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'sicilia') {
-            e.target.style.fill = '#3E5C73';
-        }
-    }
-})
-
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'puglia') {
-            e.target.style.fill = '#3E5C73';
-        }
-    }
-})
-
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'lazio') {
-            e.target.style.fill = '#3E5C73';
-        }
-    }
-})
-
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'trentino') {
-            e.target.style.fill = '#3E5C73';
-        }
-    }
-})
-
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'calabria') {
-            e.target.style.fill = '#3E5C73';
-        }
-    }
-})
-
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'campania') {
-            e.target.style.fill = '#3E5C73';
-        }
-    }
-})
-
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'abruzzo') {
-            e.target.style.fill = '#3E5C73';
-        }
-    }
-})
-
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'marche') {
-            e.target.style.fill = '#3E5C73';
-        }
-    }
-})
-
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'basilicata') {
-            e.target.style.fill = '#3E5C73';
-        }
-    }
-})
-
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'umbria') {
-            e.target.style.fill = '#3E5C73';
-        }
-    }
-})
-
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'liguria') {
-            e.target.style.fill = '#3E5C73';
-        }
-    }
-})
-
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'molise') {
-            e.target.style.fill = '#3E5C73';
-        }
-    }
-})
-
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'aosta') {
-            e.target.style.fill = '#3E5C73';
-        }
-    }
-})
-
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'friuli') {
-            e.target.style.fill = '#3E5C73';
-        }
-    }
-})
-
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'veneto') {
-            e.target.style.fill = '#3E5C73';
-        }
-    }
-})
-
-mainContainer.addEventListener('mouseout', (e) => {
-    //console.log(e.target);
-    if (e.target.classList.contains('regione')) {
-        if (e.target.id === 'sardegna') {
-            e.target.style.fill = '#3E5C73';
-        }
-    }
-})
+//mouse out event reset opacity
 
 
 
 
 
-// basilicata.addEventListener('mouseover', () => {
-//     console.log('Basilicata');
+
+
+
+
+
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'piemonte') {
+//             e.target.style.fill = '#3E5C73';
+//             e.target.style.stroke = 'grey';
+
+//         }
+//     }
 // })
-// calabria.addEventListener('mouseover', () => {
-//     console.log('Calabria');
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'lombardia') {
+//             e.target.style.fill = '#3E5C73';
+//         }
+//     }
 // })
-// campania.addEventListener('mouseover', () => {
-//     console.log('Campania');
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'emilia') {
+//             e.target.style.fill = '#3E5C73';
+//         }
+//     }
 // })
-// emilia.addEventListener('mouseover', () => {
-//     console.log('Emilia');
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'toscana') {
+//             e.target.style.fill = '#3E5C73';
+//         }
+//     }
 // })
-// friuli.addEventListener('mouseover', () => {
-//     console.log('Friuli');
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'sicilia') {
+//             e.target.style.fill = '#3E5C73';
+//         }
+//     }
 // })
-// lazio.addEventListener('mouseover', () => {
-//     console.log('Lazio');
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'puglia') {
+//             e.target.style.fill = '#3E5C73';
+//         }
+//     }
 // })
-// liguria.addEventListener('mouseover', () => {
-//     console.log('Liguria');
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'lazio') {
+//             e.target.style.fill = '#3E5C73';
+//         }
+//     }
 // })
-// lombardia.addEventListener('mouseover', () => {
-//     console.log('Lombardia');
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'trentino') {
+//             e.target.style.fill = '#3E5C73';
+//         }
+//     }
 // })
-// marche.addEventListener('mouseover', () => {
-//     console.log('Marche');
-// }) -
-//     molise.addEventListener('mouseover', () => {
-//         console.log('Molise');
-//     })
-// piemonte.addEventListener('mouseover', () => {
-//     console.log('Piemonte');
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'calabria') {
+//             e.target.style.fill = '#3E5C73';
+//         }
+//     }
 // })
-// puglia.addEventListener('mouseover', () => {
-//     console.log('Puglia');
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'campania') {
+//             e.target.style.fill = '#3E5C73';
+//         }
+//     }
 // })
-// sardegna.addEventListener('mouseover', () => {
-//     console.log('Sardegna');
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'abruzzo') {
+//             e.target.style.fill = '#3E5C73';
+//         }
+//     }
 // })
-// sicilia.addEventListener('mouseover', () => {
-//     console.log('Sicilia');
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'marche') {
+//             e.target.style.fill = '#3E5C73';
+//         }
+//     }
 // })
-// toscana.addEventListener('mouseover', () => {
-//     console.log('Toscana');
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'basilicata') {
+//             e.target.style.fill = '#3E5C73';
+//         }
+//     }
 // })
-// trentino.addEventListener('mouseover', () => {
-//     console.log('Trentino');
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'umbria') {
+//             e.target.style.fill = '#3E5C73';
+//         }
+//     }
 // })
-// umbria.addEventListener('mouseover', () => {
-//     console.log('Umbria');
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'liguria') {
+//             e.target.style.fill = '#3E5C73';
+//         }
+//     }
 // })
-// aosta.addEventListener('mouseover', () => {
-//     console.log('Aosta');
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'molise') {
+//             e.target.style.fill = '#3E5C73';
+//         }
+//     }
 // })
-// veneto.addEventListener('mouseover', () => {
-//     console.log('Veneto');
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'aosta') {
+//             e.target.style.fill = '#3E5C73';
+//         }
+//     }
+// })
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'friuli') {
+//             e.target.style.fill = '#3E5C73';
+//         }
+//     }
+// })
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'veneto') {
+//             e.target.style.fill = '#3E5C73';
+//         }
+//     }
+// })
+
+// mainContainer.addEventListener('mouseout', (e) => {
+//     //console.log(e.target);
+//     if (e.target.classList.contains('regione')) {
+//         if (e.target.id === 'sardegna') {
+//             e.target.style.fill = '#3E5C73';
+//         }
+//     }
 // })

@@ -8,6 +8,10 @@
   letter-spacing: 2px;
 }
 
+body {
+  background-color: #f6f6f6;
+}
+
 /* utility classes */
 
 ol {
@@ -15,7 +19,11 @@ ol {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
+}
+
+.opacity {
+  opacity: 0;
 }
 
 .margin-left {
@@ -41,34 +49,45 @@ ol {
   font-size: 3rem;
   padding: 10px;
   height: 100px;
-  border: 1px solid green;
+  background-color: #f6f6f6;
 }
 
 .main-container {
   display: flex;
-
-  border: 1px solid red;
   margin: auto;
   height: 100%;
 }
 
 .main-container .list {
+  min-width: 340px;
   flex: 1;
   padding: 50px;
-  background-color: #f6f6f6;
+  background-color: rgba(0, 255, 0, 0.03);
+  /* border-top: 1px solid green;
+  border-right: 1px solid green;
+  border-bottom: 1px solid green; */
+}
+
+.main-container .list ol {
+  display: block;
 }
 
 .list ul li {
+  width: 100%;
   margin-top: 5px;
 }
 .list ol li {
+  width: 100%;
   margin-top: 5px;
 }
 
 .main-container .info {
   flex: 1;
   padding: 50px;
-  background-color: #f6f6f6;
+  background-color: rgba(255, 0, 0, 0.03);
+  /* border-top: 1px solid red;
+  border-left: 1px solid red;
+  border-bottom: 1px solid red; */
 }
 
 .region-header {
@@ -80,11 +99,13 @@ ol {
 }
 
 .region-header h1 {
-  margin-left: 60px;
+  display: flex;
+  justify-content: center;
+  width: 250px;
 }
 
 .image-container {
-  width: 200px;
+  width: 250px;
 }
 
 .image-container img {
@@ -104,6 +125,11 @@ ol {
   opacity: 0.3;
 }
 
+.svg-container {
+  min-width: 860px;
+  background-color: #ffffff;
+}
+
 svg {
   width: 100%;
   margin: 90px auto;
@@ -117,8 +143,8 @@ svg path {
 
 svg path:hover {
   fill: dimgray;
-  stroke: palegreen;
-  stroke-width: 3px;
+  stroke: grey;
+  stroke-width: 1;
 }
 
 svg path#VA,
@@ -127,102 +153,4 @@ svg path#VA,
 #MT {
   fill: #666;
   cursor: default;
-}
-
-svg path#IT-77:hover {
-  fill: #ffffff;
-  stroke: magenta;
-  stroke-width: 2px;
-}
-
-svg path#IT-78:hover {
-  fill: #ffffff;
-  stroke: magenta;
-  stroke-width: 2px;
-}
-svg path#IT-72:hover {
-  fill: #ffffff;
-  stroke: magenta;
-  stroke-width: 2px;
-}
-svg path#IT-45:hover {
-  fill: #ffffff;
-  stroke: magenta;
-  stroke-width: 2px;
-}
-svg path#IT-36:hover {
-  fill: #ffffff;
-  stroke: magenta;
-  stroke-width: 2px;
-}
-svg path#IT-62:hover {
-  fill: #ffffff;
-  stroke: magenta;
-  stroke-width: 2px;
-}
-svg path#IT-42:hover {
-  fill: #ffffff;
-  stroke: magenta;
-  stroke-width: 2px;
-}
-svg path#IT-25:hover {
-  fill: #ffffff;
-  stroke: magenta;
-  stroke-width: 2px;
-}
-svg path#IT-57:hover {
-  fill: #ffffff;
-  stroke: magenta;
-  stroke-width: 2px;
-}
-svg path#IT-67:hover {
-  fill: #ffffff;
-  stroke: magenta;
-  stroke-width: 2px;
-}
-svg path#IT-21:hover {
-  fill: #ffffff;
-  stroke: magenta;
-  stroke-width: 2px;
-}
-svg path#IT-75:hover {
-  fill: #ffffff;
-  stroke: magenta;
-  stroke-width: 2px;
-}
-svg path#IT-88:hover {
-  fill: #ffffff;
-  stroke: magenta;
-  stroke-width: 2px;
-}
-svg path#IT-82:hover {
-  fill: #ffffff;
-  stroke: magenta;
-  stroke-width: 2px;
-}
-svg path#IT-52:hover {
-  fill: #ffffff;
-  stroke: magenta;
-  stroke-width: 2px;
-}
-svg path#IT-32:hover {
-  fill: #ffffff;
-  stroke: magenta;
-  stroke-width: 2px;
-}
-svg path#IT-55:hover {
-  fill: #ffffff;
-  stroke: magenta;
-  stroke-width: 2px;
-}
-svg path#IT-23:hover {
-  fill: #ffffff;
-  stroke: magenta;
-  stroke-width: 2px;
-}
-
-svg path#IT-34:hover {
-  fill: #ffffff;
-  stroke: magenta;
-  stroke-width: 2px;
 }
