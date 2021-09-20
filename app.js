@@ -272,6 +272,15 @@ listContainer.addEventListener('click', (e) => {
                 path.style.fill = `url(#${ name[1] }-pattern)`;
             }
         })
+        let regionName = e.target.classList[1]
+        info.innerHTML = `
+        <div class="region-header">
+        <h1>${ regionsInfo[regionName][0] }</h1>
+        <div class="image-container"><img src="${ regionsInfo[regionName][2] }" alt="sicily-foto"></div>
+     </div>
+     <p>${ regionsInfo[regionName][1] }</p>
+        <iframe class="song" src="${ regionsInfo[regionName][3] }" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        `
     };
 })
 
