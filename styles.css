@@ -309,6 +309,7 @@ svg path#VA,
     left: 0;
     background-color: rgba(0, 255, 0, 0.1) !important;
     backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
     border: 2px solid green;
     min-height: 100% !important;
     overflow: hidden;
@@ -320,6 +321,7 @@ svg path#VA,
     right: 0;
     background-color: rgba(255, 0, 0, 0.1) !important;
     backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
     border: 2px solid red;
     min-height: 100% !important;
     overflow: hidden;
@@ -379,5 +381,8 @@ svg path#VA,
   .main-container .list {
     min-width: 330px;
     width: 330px;
+  }
+  .region-header h1 {
+    font-size: 1.2rem;
   }
 }
