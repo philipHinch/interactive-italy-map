@@ -6,4 +6,9 @@ You can select or hover over the region you want to get information about.
 
 The aside section will show some nice information about the specific region.
 
-Only desktop friendly at the moment.
+Mobile friendly now.
+
+HTML, CSS & VANILLA JAVASCRIPT
+
+
+
