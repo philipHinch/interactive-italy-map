@@ -39,6 +39,14 @@ ol {
   margin-left: 50px;
 }
 
+#region-title {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 202;
+}
+
 .region {
   font-weight: bold;
   cursor: pointer;
@@ -307,10 +315,10 @@ svg path#VA,
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 255, 0, 0.1) !important;
+    background-color: rgba(246, 246, 246, 0.3) !important;
+    border-color: black;
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
-    border: 2px solid green;
     min-height: 100% !important;
     overflow: hidden;
     display: none;
@@ -319,10 +327,10 @@ svg path#VA,
     position: absolute;
     top: 0;
     right: 0;
-    background-color: rgba(255, 0, 0, 0.1) !important;
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
-    border: 2px solid red;
+    background-color: rgba(246, 246, 246, 0.3) !important;
+    border-color: black;
     min-height: 100% !important;
     overflow: hidden;
     display: none;
@@ -377,10 +385,14 @@ svg path#VA,
   .main-container .info {
     min-width: 330px;
     width: 330px;
+    background-color: rgba(246, 246, 246, 0.3);
+    border-color: black;
   }
   .main-container .list {
     min-width: 330px;
     width: 330px;
+    background-color: rgba(246, 246, 246, 0.3);
+    border-color: black;
   }
   .region-header h1 {
     font-size: 1.2rem;

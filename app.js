@@ -28,6 +28,7 @@ const arrowLeft = document.querySelector('.arrow-left');
 const arrowRight = document.querySelector('.arrow-right');
 const closeBtn = document.querySelector('.close');
 const italyBtn = document.querySelector('.italy');
+const regionTitle = document.getElementById('region-title');
 
 
 let regionsArr = [];
@@ -273,6 +274,13 @@ listContainer.addEventListener('click', (e) => {
     if (e.target.classList.contains('region')) {
         //toggle hidden class
         e.target.children[1].classList.toggle('hidden');
+        //display region h3
+        // let region = e.target.classList[1].charAt(0).toUpperCase();
+        // region += e.target.classList[1].slice(1);
+        // regionTitle.textContent = `${ region }`;
+        let region = e.target.classList[1];
+        regionTitle.textContent = `${ regionsInfo[region][0] }`
+        regionTitle.classList.remove('hidden');
         //change icon
         let icon = e.target.firstElementChild;
         if (icon.classList.contains('fa-sort-down')) {
@@ -352,7 +360,11 @@ svgPaths.forEach((path) => {
             <div class="image-container"><img src="${ regionsInfo[region][2] }" alt="sicily-foto"></div>
          </div>
          <p>${ regionsInfo[region][1] }</p>
-            `
+            `;
+        //add region name to h3
+        let regionName = e.target.id;
+        regionTitle.textContent = `${ regionsInfo[regionName][0] }`
+        regionTitle.classList.remove('hidden');
     })
 })
 
