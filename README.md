@@ -12,7 +12,7 @@ Mobile friendly now.
 2. CSS
 3. VANILLA JAVASCRIPT
 
-[I'm an inline-style link with title](https://mapofitaly.netlify.app/ "Map of Italy")
+[Map of Italy](https://mapofitaly.netlify.app/ "Map of Italy")
 
 
 
