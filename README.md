@@ -12,6 +12,9 @@ Mobile friendly now.
 2. CSS
 3. VANILLA JAVASCRIPT
 
+![Preview](/images/preview.png)
+
+
 [Map of Italy](https://mapofitaly.netlify.app/ "Map of Italy")
 
 
