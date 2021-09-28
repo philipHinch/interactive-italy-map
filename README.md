@@ -8,6 +8,8 @@ The aside section will show some nice information about the specific region.
 
 Mobile friendly now.
 
+Technologies used:
+
 1. HTML
 2. CSS
 3. VANILLA JAVASCRIPT
@@ -15,7 +17,7 @@ Mobile friendly now.
 ![Preview](/images/preview.png)
 
 
-[Map of Italy](https://mapofitaly.netlify.app/ "Map of Italy")
+[View Map of Italy](https://mapofitaly.netlify.app/ "Map of Italy")
 
 
 
