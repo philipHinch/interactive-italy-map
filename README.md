@@ -8,7 +8,11 @@ The aside section will show some nice information about the specific region.
 
 Mobile friendly now.
 
-HTML, CSS & VANILLA JAVASCRIPT
+1. HTML
+2. CSS
+3. VANILLA JAVASCRIPT
+
+[Map of Italy](https://mapofitaly.netlify.app/ "Map of Italy")
 
 
 
